@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <title>Solicitud de Asignación Preupuestaria para la Inversión/Gasto</title>
+    <meta charset="UTF-8">
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
+    <link rel="Stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="Stylesheet" type="text/css" href="http://kendo.cdn.telerik.com/2017.2.504/styles/kendo.common.min.css" />
+    <link rel="Stylesheet" type="text/css" href="http://kendo.cdn.telerik.com/2017.2.504/styles/kendo.common-bootstrap.min.css" />
+    <link rel="Stylesheet" type="text/css" href="http://kendo.cdn.telerik.com/2017.2.504/styles/kendo.bootstrap.min.css" />
+    <script src="http://kendo.cdn.telerik.com/2017.2.504/js/kendo.all.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2017.2.504/js/cultures/kendo.culture.es-CL.min.js"></script>
+
+
+    <!--  <script type="text/javascript" src="/PWAWF/_layouts/15/clientforms.js">
+    </script>
+    <script type="text/javascript" src="/PWAWF/_layouts/15/clientpeoplepicker.js"></script>
+    <script type="text/javascript" src="/PWAWF/_layouts/15/autofill.js"></script>
+    <script type="text/javascript" src="/PWAWF/_layouts/15/init.js"></script>
+    <script type="text/javascript" src="/PWAWF/_layouts/15/1033/initstrings.js"></script>
+    <script type="text/javascript" src="/PWAWF/_layouts/15/clienttemplates.js"></script>
+    <script type="text/javascript" src="/PWAWF/_layouts/15/1033/strings.js"></script>
+    <script type="text/javascript" src="/PWAWF/_layouts/15/core.js"></script>
+
+    <link rel="Stylesheet" type="text/css" href="/PWA_CLOUDEPM/webparts/Idea/Idea.css" /> -->
+
+
+
+    <script type="text/javascript" src="http://projectappfend.aiep.corp/PWA_CLOUDEPM/PWAWF/_layouts/15/clientforms.js"></script>
+    <script type="text/javascript" src="http://projectappfend.aiep.corp/PWA_CLOUDEPM/PWAWF/_layouts/15/clientpeoplepicker.js"></script>
+    <script type="text/javascript" src="http://projectappfend.aiep.corp/PWA_CLOUDEPM/PWAWF/_layouts/15/autofill.js"></script>
+    <script type="text/javascript" src="http://projectappfend.aiep.corp/PWA_CLOUDEPM/PWAWF/_layouts/15/init.js"></script>
+    <script type="text/javascript" src="http://projectappfend.aiep.corp/PWA_CLOUDEPM/PWAWF/_layouts/15/1033/initstrings.js"></script>
+    <script type="text/javascript" src="http://projectappfend.aiep.corp/PWA_CLOUDEPM/PWAWF/_layouts/15/clienttemplates.js"></script>
+    <script type="text/javascript" src="http://projectappfend.aiep.corp/PWA_CLOUDEPM/PWAWF/_layouts/15/1033/strings.js"></script>
+    <script type="text/javascript" src="http://projectappfend.aiep.corp/PWA_CLOUDEPM/PWAWF/_layouts/15/core.js"></script>
+
+    <!-- <link rel="Stylesheet" type="text/css" href="http://projectappfend.aiep.corp/PWA_CLOUDEPM/PWA_CLOUDEPM/webparts/Idea/Idea.css" /> -->
+
+
+    <link rel="Stylesheet" type="text/css" href="Asignación Presupuestaria I&G.css" />
+
+</head>
+
+<body>
+    <header class="page-header">
+        <h3>Solicitud de Asignación Presupuestaria para la Inversión/Gasto</h3>
+    </header>
+
+    <div id="main-container" class="form-horizontal">
+        <ul id="menu">
+            <li>Solicitud</li>
+            <li>Adjudicación</li>
+            <li>Flujos</li>
+            <li>Formalización</li>
+        </ul>
+
+        <div id="TabSolicitud">
+            <section id="section1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse1"> 1.Identificación </a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="collapse in">
+                        <div class="panel-body">
+                            <div class="container">
+                                <div class="form-group">
+                                    <div class="col-md-2"><label for="CodigoIP">IP</label></div>
+                                    <div class="col-md-2"><input type="text" id="CodigoIP" class="form-control"> </div>
+                                    <div class="col-md-2"><label for="NombreIniciativa">Nombre</label></div>
+                                    <div class="col-md-6"><input type="text" id="NombreIniciativa" class="form-control"> </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-2"><label for="fechaSolicitud">Fecha Solicitud</label></div>
+                                    <div class="col-md-2"><input type="text" id="fechaSolicitud" readonly></div>
+                                    <div class="col-md-2"><label for="GestorDeDemanda">Gestor de Demanda</label></div>
+                                    <div class="col-md-4">
+                                        <div id="GestorDeDemanda"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-2"><label for="fechaModificacion">Fecha Modificación</label></div>
+                                    <div class="col-md-2"><input id="fechaModificacion" readonly> </div>
+                                    <div class="col-md-2"><label for="JefeDeProyecto">Jefe de Proyecto</label></div>
+                                    <div class="col-md-4">
+                                        <div id="JefeDeProyecto"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-2"><label for="selectUnidadSolicitante">Unidad Solicitante</label></div>
+                                    <div class="col-md-4">
+                                        <input id="selectUnidadSolicitante">
+                                    </div>
+                                    <div class="col-md-2"><label for="selectUnidadEjecutante">Unidad Ejecutante</label></div>
+                                    <div class="col-md-4">
+                                        <input id="selectUnidadEjecutante">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="section2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse2"> 2. Solicitud de Autorización para Licitar</a>
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="collapse in">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="col-md-2"><label for="TipoLicitacion">Tipo de licitación *</label></div>
+                                <div class="col-md-10">
+                                    <div class="radio">
+                                        <label><input type="radio" name="optTipoLicitacion" value="Pública">Pública</label>
+                                        <label><input type="radio" name="optTipoLicitacion" value="Privada">Privada</label>
+                                        <label><input type="radio" name="optTipoLicitacion" value="ProveedorUnico" checked="checked">Proveedor único</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-2"><label for="NombreContrato">Nombre del Contrato *</label></div>
+                                <div class="col-md-10"><input type="text" id="NombreContrato" class="form-control"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-3"><label for="PresupestoTotalIva">Presupuesto total estimado (con IVA) *</label></div>
+                                <div class="col-md-2"><input type="text" id="PresupestoTotalIva" class="form-control"></div>
+                                <div class="col-md-2"><label for="Fuente">Fuente *</label></div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optFuente" value="Inversion">Inversión</label>
+                                    <label><input type="radio" name="optFuente" value="Gasto">Gasto</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-2"><label for="Moneda">Moneda *</label></div>
+                                <div class="col-md-2"><select>
+                                    <option value="clp">CLP$</option>
+                                    <option value="usd">USD$</option>
+                                    <option value="eur">EUR$</option>
+                                  </select>
+                                </div>
+                                <div class="col-md-8"><input type="text" id="descMoneda" class="form-control"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-3"><label for="ComentariosSAL">Comentarios</label></div>
+                                <div class="col-md-9"><input type="text" id="ComentariosSAL" class="form-control"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="section3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse3">3. Solicitud de Asignación Presupuestaria</a>
+                        </h4>
+                    </div>
+                    <div id="collapse3" class="collapse in">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="col-md-2"><label for="Modalidad">Modalidad *</label></div>
+                                <div class="col-md-4">
+                                    <div class="radio">
+                                        <label><input type="radio" name="optModalidad" value="Ejecutante">Ejecutante</label>
+                                        <label><input type="radio" name="optModalidad" value="Solicitante">Solicitante</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-5">
+                                    <h5>Cargo del Presupuesto *</h5>
+                                    <div class="col-md-3"><label for="numCIP">N° CIP (Capex)</label></div>
+                                    <div class="col-md-2">
+                                        <select>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                            <option value="40">40</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <h5>Swap</h5>
+                                    <div class="col-md-2"><label for="IPProyecto">IP Proyecto</label></div>
+                                    <div class="col-md-1">
+                                        <select>
+                                            <option value="2018-27">2018-27</option>
+                                            <option value="2018-28">2018-28</option>
+                                            <option value="2018-29">2018-29</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4"><input type="text" id="nomProyecto"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-5">
+                                    <div class="col-md-3"><label for="numRegistro">N° Registro (Opex)</label></div>
+                                    <div class="col-md-1">
+                                        <select>
+                                            <option value="167">167</option>
+                                            <option value="168">168</option>
+                                            <option value="169">169</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <textarea id="JustyObs" class="form-control" placeholder="<Justificación y Observaciones>"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h5>Disponibilidad Presupuestaria *</h5>
+                                <div class="col-md-3"><label for="monto">MONTO</label></div>
+                                <div class="col-md-3"><label for="presupuesto">Presupuesto</label></div>
+                                <div class="col-md-3"><label for="comprometido">Comprometido</label></div>
+                                <div class="col-md-3"><label for="disponible">Disponible</label></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-3"><label for="autorizado">Autorizado</label></div>
+                                <div class="col-md-3"><input type="text" id="presupuestoAutorizado" class="form-control" placeholder="100.000.000"> </div>
+                                <div class="col-md-3"><input type="text" id="comprometidoAutorizado" class="form-control" placeholder="0"> </div>
+                                <div class="col-md-3"><input type="text" id="disponibleAutorizado" class="form-control" placeholder="100.000.000"> </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-3"><label for="swap">Swap</label></div>
+                                <div class="col-md-3"><input type="text" id="presupuestoSwap" class="form-control" placeholder="16.000.000"> </div>
+                                <div class="col-md-3"><input type="text" id="comprometidoSwap" class="form-control" placeholder="0"> </div>
+                                <div class="col-md-3"><input type="text" id="disponibleSwap" class="form-control" placeholder="16.000.000"> </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-3"><label for="total">TOTAL</label></div>
+                                <div class="col-md-3"><input type="text" id="presupuestoTotal" class="form-control" placeholder="116.000.000"> </div>
+                                <div class="col-md-3"><input type="text" id="comprometidoTotal" class="form-control" placeholder="0"> </div>
+                                <div class="col-md-3"><input type="text" id="disponibleTotal" class="form-control" placeholder="116.000.000"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="TabJustificacion">
+            <section id="section4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse5">4. Participantes Invitados a la Licitación</a>
+                        </h4>
+                    </div>
+                    <div id="collapse5" class="collapse in">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div id="gridParticipantesLicitacion"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <h5>Comentarios</h5>
+                                <textarea id="comentarios" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+                <button id="btnGuardar" type="button" class="btn btn-primary">Guardar</button>
+                <button id="btnCancelar" type="button" class="btn btn-danger">Cancelar</button>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-8"></div>
+                <div class="col-md-4">
+                    <div class="form-check">
+                        <input id="listoParaEnvio" type="checkbox" class="form-check-input">
+                        <label for="listoParaEnvio" class="form-check-label">Listo para envío</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dialog"></div>
+
+
+    <footer>
+
+    </footer>
+
+    <script src="Asignación Presupuestaria I&G.js"></script>
+
+    <!--<script src="..\Idea\Idea.js"></script>
+       <script src="/PWA_CLOUDEPM/webparts/Idea/Idea.js"></script>
+    
+    <script src="http://projectappfend.aiep.corp/PWA_CLOUDEPM/PWA_CLOUDEPM/webparts/Idea/Idea.js"></script>-->
+</body>
+
+</html>
