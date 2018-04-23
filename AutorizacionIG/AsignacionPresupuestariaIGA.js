@@ -1,20 +1,20 @@
 var OsirisApp = window.OsirisApp || {};
-OsirisApp.Idea = OsirisApp.Idea || {};
+OsirisApp.AsignacionPresupuestariaIGA = OsirisApp.AsignacionPresupuestariaIGA || {};
 
 $(document).ready(function() {
     "use strict";
-    SP.SOD.executeFunc('sp.js', 'SP.ClientContext', OsirisApp.Idea.Init);
-    //	OsirisApp.Idea.Init();
+    SP.SOD.executeFunc('sp.js', 'SP.ClientContext', OsirisApp.AsignacionPresupuestariaIGA.Init);
+    //	OsirisApp.AsignacionPresupuestariaIGA.Init();
 });
 
-OsirisApp.Idea.Init = function() {
+OsirisApp.AsignacionPresupuestariaIGA.Init = function() {
     "use strict";
     kendo.culture("es-CL");
-    OsirisApp.Idea.NewWork = new OsirisApp.Idea.Work();
-    OsirisApp.Idea.NewWork.SetControls();
+    OsirisApp.AsignacionPresupuestariaIGA.NewWork = new OsirisApp.AsignacionPresupuestariaIGA.Work();
+    OsirisApp.AsignacionPresupuestariaIGA.NewWork.SetControls();
 };
 
-OsirisApp.Idea.Work = function() {
+OsirisApp.AsignacionPresupuestariaIGA.Work = function() {
 
         var nombreIniciativa;
         var nombreProyecto;
@@ -924,21 +924,15 @@ OsirisApp.Idea.Work = function() {
             initializePeoplePicker('ppGDemandaEval', null);
 
 
-
-
-
-
-
-            $("#btnGuardar").on("click", OsirisApp.Idea.NewWork.GuardarFormulario);
-            $("#btnCancelar").on("click", OsirisApp.Idea.NewWork.CancelarFormulario)
-            $("#selectUnidadSolicitante").on("change", OsirisApp.Idea.NewWork.GetunidadUsuariaValue);
-            $("#selectComponente").on("change", OsirisApp.Idea.NewWork.Set_selectExigeCasoNegocio);
-            $("#selectTamano").on("change", OsirisApp.Idea.NewWork.Set_selectExigeCasoNegocio);
-            $("#costoInvPlanificado").on("change", OsirisApp.Idea.NewWork.Set_selectselectTipoCosto);
-            $("#selectCIPAsociado").on("change", OsirisApp.Idea.NewWork.EntregaTextoCIP);
+            $("#btnGuardar").on("click", OsirisApp.AsignacionPresupuestariaIGA.NewWork.GuardarFormulario);
+            $("#btnCancelar").on("click", OsirisApp.AsignacionPresupuestariaIGA.NewWork.CancelarFormulario)
+            $("#selectUnidadSolicitante").on("change", OsirisApp.AsignacionPresupuestariaIGA.NewWork.GetunidadUsuariaValue);
+            $("#selectComponente").on("change", OsirisApp.AsignacionPresupuestariaIGA.NewWork.Set_selectExigeCasoNegocio);
+            $("#selectTamano").on("change", OsirisApp.AsignacionPresupuestariaIGA.NewWork.Set_selectExigeCasoNegocio);
+            $("#costoInvPlanificado").on("change", OsirisApp.AsignacionPresupuestariaIGA.NewWork.Set_selectselectTipoCosto);
+            $("#selectCIPAsociado").on("change", OsirisApp.AsignacionPresupuestariaIGA.NewWork.EntregaTextoCIP);
             getDropDownValues();
             getDropDownValuesCodeCIPAsociado();
-
 
         }
 
@@ -1023,16 +1017,16 @@ OsirisApp.Idea.Work = function() {
             $("#selectUnidadUsuaria").data("kendoDropDownList").setDataSource(data_selectUnidadUsuaria);
         }
 
-        function getIdea() {
+        function getAsignacionPresupuestariaIGA() {
             context = SP.ClientContext.get_current();
-            var targetList = context.get_web().get_lists().getByTitle("Idea");
+            var targetList = context.get_web().get_lists().getByTitle("Solicitud de Asignación Preupuestaria para la Inversión/Gasto");
             itemId = parseInt(GetUrlKeyValue('ID'));
             var caml = "<View></View>";
             var camlQuery = new SP.CamlQuery();
             camlQuery.set_viewXml(caml);
             currList = targetList.getItems(camlQuery);
             context.load(currList);
-            context.executeQueryAsync(getIdeaOnSuccess, OnFailure);
+            context.executeQueryAsync(getAsignacionPresupuestariaIGAOnSuccess, OnFailure);
         }
 
         function getAutorizacionIGOnSuccess(sender, args) {
@@ -1045,7 +1039,7 @@ OsirisApp.Idea.Work = function() {
                         $("#IP").val(proj.get_item("CodigoIP"));
 
                         //Nombre del Proyecto
-                        nombreProyecto = proj.get_item("Title");
+                        var nombreProyecto = proj.get_item("Title");
                         $("#NombreIniciativa").val(nombreProyecto);
 
                         //Fecha Solicitud
@@ -1108,6 +1102,7 @@ OsirisApp.Idea.Work = function() {
 
                         //Presupuesto Autorizado
 
+
                         //Comprometido Autorizado
 
                         //Presupuesto Autorizado
@@ -1117,6 +1112,7 @@ OsirisApp.Idea.Work = function() {
                         //Disponible Autorizado
 
                         //Presupuesto Swap
+                        $("#txtpresupuestoSwap").val(proj.get_item("presupuestoSwap"));
 
                         //Comprometido Swap
 
@@ -1682,7 +1678,7 @@ OsirisApp.Idea.Work = function() {
 
             $("#selectAnoOperacion").data("kendoDropDownList").setDataSource(data_selectAnoOperacion);
 
-            getIdea();
+            getAsignacionPresupuestariaIGA();
             getDysplayOrEditForm();
             _spBodyOnLoadFunctionNames.push("HideRibbon");
         }
@@ -1710,7 +1706,7 @@ OsirisApp.Idea.Work = function() {
         }
 
         function cancelarFormulario() {
-            $(location).prop('href', "/PWA_CLOUDEPM/Lists/Idea/AllItems.aspx");
+            $(location).prop('href', "/PWA_CLOUDEPM/Lists/AsignacionPresupuestariaIGA/AllItems.aspx");
 
         }
 
@@ -2158,10 +2154,10 @@ OsirisApp.Idea.Work = function() {
 
             oListItem.update();
             context.load(oListItem);
-            context.executeQueryAsync(guardarIdeaOnSucceeded, OnFailure);
+            context.executeQueryAsync(guardarAsignacionPresupuestariaIGAOnSucceeded, OnFailure);
         }
 
-        function guardarIdeaOnSucceeded(sender, request) {
+        function guardarAsignacionPresupuestariaIGAOnSucceeded(sender, request) {
             kendo.ui.progress($("#main-container"), false);
             var newId = oListItem.get_id();
             $("#dialog").kendoDialog({
@@ -2169,7 +2165,7 @@ OsirisApp.Idea.Work = function() {
                 title: "Cloud EPM",
                 closable: true,
                 modal: true,
-                content: "<p>La idea ha sido guardado correctamente.<p>",
+                content: "<p>La Solicitud de Asignación Preupuestaria para la Inversión/Gasto ha sido guardada correctamente.<p>",
                 actions: [{ text: 'OK' }]
             });
         }
@@ -2385,4 +2381,4 @@ OsirisApp.Idea.Work = function() {
         return publics;
 
     }
-    // #End OsirisApp.Idea.Work
+    // #End OsirisApp.AsignacionPresupuestariaIGA.Work
