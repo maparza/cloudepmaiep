@@ -1,0 +1,261 @@
+<!doctype html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+	
+	<title></title>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.11.3.min.js"></script>
+	<link rel="Stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="Stylesheet" type="text/css" href="http://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common.min.css" />
+    <link rel="Stylesheet" type="text/css" href="http://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common-bootstrap.min.css" />
+	<link rel="Stylesheet" type="text/css" href="http://kendo.cdn.telerik.com/2018.1.221/styles/kendo.bootstrap.min.css" />	
+	<link rel="Stylesheet" type="text/css" href="/PWA_CLOUDEPM/webparts/masterplan/masterplan.css" />	
+	
+	<script src="http://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+	<script src="http://kendo.cdn.telerik.com/2018.1.221/js/cultures/kendo.culture.es-CL.min.js"></script>
+	
+
+	<script type="text/javascript" src="/PWA_CLOUDEPM/_layouts/15/clientforms.js">	</script>		
+	<script type="text/javascript" src="/PWA_CLOUDEPM/_layouts/15/clientpeoplepicker.js"></script>
+	<script type="text/javascript" src="/PWA_CLOUDEPM/_layouts/15/autofill.js"></script>
+	<script type="text/javascript" src="/PWA_CLOUDEPM/_layouts/15/init.js"></script>
+	<script type="text/javascript" src="/PWA_CLOUDEPM/_layouts/15/1033/initstrings.js"></script>
+	<script type="text/javascript" src="/PWA_CLOUDEPM/_layouts/15/clienttemplates.js"></script>
+	<script type="text/javascript" src="/PWA_CLOUDEPM/_layouts/15/1033/strings.js"></script>
+	<script type="text/javascript" src="/PWA_CLOUDEPM/_layouts/15/core.js"></script>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">J5EY54DVNPYH-547459078-3</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">996a6f67-4dbd-4ba2-a831-e798d0e11a3d</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">http://projectappfend.aiep.corp/PWA_CLOUDEPM/_layouts/15/DocIdRedir.aspx?ID=J5EY54DVNPYH-547459078-3, J5EY54DVNPYH-547459078-3</mso:_dlc_DocIdUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+	<header>
+		<h2>Master Plan – Portafolio de Inversión</h2>
+	</header>	
+	
+			<ul id="menu">
+				<li>Análisis</li>
+				<li>Impacto</li>		
+				<li>Autorización</li>				
+			</ul>
+
+			<div id="tabAnalisis">
+				<section id="seccion1">
+					<div class="panel panel-default pw-1000">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" href="#collapse1">1. Identificación</a>
+							</h4>
+						</div>
+						<div id="collapse1" class="panel-collapse">
+							<div class="panel-body">								
+								<div class="form-inline">
+									<div class="row mb-10">											
+										<div class="form-group col-md-4">
+											<label for="portafolio" class="label-form mrl-10">Portafolio</label>
+											<input type="text" name="portafolio" id="portafolio" class="form-control" disabled>
+										</div>
+										<div class="form-group col-md-4">
+											<input type="text" id="nombrePortafolio" name="nombrePortafolio" class="form-control" style="width: 280px;" >
+										</div>											
+										<div class="form-group col-md-4">
+											<label for="version" class="label-form mrl-10">Versión</label>
+											<input type="number" name="version" id="version" class="form-control" >
+										</div>
+									</div>
+									<div class="row mb-10">
+										<div class="form-group col-md-4">											
+											<label for="empresa" class="label-form mrl-10">Empresa</label>
+											<input type="text" name="empresa" id="empresa" class="form-control" >
+										</div>
+										<div class="form-group col-md-4">											
+											<label for="pais" class="label-form mrl-10">País/Sede</label>
+											<input type="text" name="pais" id="pais" class="form-control" >
+										</div>
+										<div class="form-group col-md-4">													
+											<label for="fechaVersion" class="label-form mrl-10">Fecha Versión</label>
+											<input type="date" name="fechaVersion" id="fechaVersion" class="form-control" >
+										</div>
+									</div>
+									<div class="row mb-10">
+										<div class="form-group col-md-4">													
+											<label for="versionFinal" class="label-form mrl-10">Versión Final</label>
+											<input type="checkbox" name="versionFinal" id="versionFinal" >
+										</div>
+										<div class="form-group col-md-4">																								
+											<label for="instancia" class="label-form mrl-10">Instancia</label>
+											<input type="text" name="instancia" id="instancia" class="form-control" >
+										</div>
+										<div class="form-group col-md-4">												
+											<label for="responsable" class="label-form mrl-10">Responsable</label>
+											<div id="peoplePickerDiv"></div>
+										</div>
+									</div>
+								</div>											
+							</div>
+						</div>
+					</div>												
+				</section>
+				<section id="seccion2">
+					<div class="panel panel-default pw-1000">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" href="#collapse2">2. Descripción Ejecutiva del Proceso
+									</a>
+							</h4>
+						</div>
+						<div id="collapse2" class="panel-collapse">
+							<div class="panel-body">
+								<div class="form-group">									
+															
+										<textarea name="descripcion" id="descripcion" class="form-control" rows="7"
+										placeholder="Describa el proceso Master Plan para este período y la orientación estratégica para la sección de las iniciativas" ></textarea>
+									
+								</div>
+							</div>
+						</div>		
+					</div>						
+				</section>
+				<section id="seccion3">
+					<div class="panel panel-default pw-1000">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" href="#collapse3">3. Evaluación para la Selección de Iniciativas
+									</a>
+							</h4>
+						</div>
+						<div id="collapse3" class="panel-collapse">
+							<div class="container-fluid">	
+								<div class="row mb-15">																							
+									<div id="gridEvaluacion"></div>											
+								</div>				
+								<div class="row mb-10">								
+									
+									<div class="form-group col-md-12">												
+										<label for="totalautorizado" class="label-form mrl-10">Total Autorizado</label>
+										<input type="text" name="totalautorizado" id="totalautorizado" class="form-control" >
+									</div>
+								</div>											
+							</div>
+						</div>			
+					</div>					
+				</section>	
+			</div>
+	
+			<div id="tabImpacto">
+				<section id="seccion4">
+					<div class="panel panel-default pw-1000">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" href="#collapse4">4. Evaluación del Impacto de cada Iniciativa</a>
+							</h4>
+						</div>
+						<div id="collapse4" class="panel-collapse">
+							
+								<div class="container-fluid">
+									<div class="row">
+										<div id="gridImpacto"></div>										
+									</div>												
+								</div>
+							
+						</div>			
+					</div>					
+				</section>
+				<section id="seccion5">
+					<div class="panel panel-default pw-1000">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" href="#collapse5">5. Inversión Total Autorizada
+									</a>
+							</h4>
+						</div>
+						<div id="collapse5" class="panel-collapse">
+							<div class="panel-body">
+								<div class="container-fluid">
+									<div class="form-group">
+										<div class="row mb-5">
+											<label for="montoInversionSolicitada" class="label-form col-xs-12 col-md-3 col-form-label">Monto Inversión Solicitada</label>
+											<div class="col-xs-12 col-md-3">
+												<input type="number" name="montoInversionSolicitada" id="montoInversionSolicitada" class="form-control" >
+											</div>
+											<label for="montoInversionAutorizada" class="label-form col-xs-12 col-md-3 col-form-label">Monto Inversión Autorizada</label>
+											<div class="col-xs-12 col-md-3">
+												<input type="number" name="montoInversionAutorizada" id="montoInversionAutorizada" class="form-control" >
+											</div>										
+										</div>
+										<div class="row mb-5">
+												<label for="umbral" class="label-form col-xs-12 col-md-3 col-form-label">Umbral Inversión</label>
+												<div class="col-xs-12 col-md-3">
+													<input type="number" name="umbral" id="umbral" class="form-control" >
+												</div>
+												<label for="ddlmoneda" class="label-form col-xs-12 col-md-3 col-form-label">Moneda</label>
+												<div class="col-xs-12 col-md-3">
+													<input type="text" name="ddlmoneda" id="ddlmoneda" class="form-control" >
+												</div>										
+											</div>							
+									</div>												
+								</div>
+							</div>
+						</div>			
+					</div>					
+				</section>
+				
+			</div>
+
+			<div id="tabAutorizacion">				
+				<section id="seccion6">
+					<div class="panel panel-default pw-1000">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" href="#collapse6">6. Autorización del Master Plan
+									</a>
+							</h4>
+						</div>
+						<div id="collapse6" class="panel-collapse">
+							<div class="panel-body">
+								<div class="container-fluid">
+									<div class="form-group">
+										<div class="row mb-5">
+											<label for="resolucion" class="label-form col-xs-12 col-md-3 col-form-label">Resolución</label>
+											<div class="col-xs-12 col-md-3">
+												<input type="text" name="resolucion" id="resolucion" class="form-control" >
+											</div>
+											<label for="fechaResolucion" class="label-form col-xs-12 col-md-3 col-form-label">Fecha Resolución</label>
+											<div class="col-xs-12 col-md-3">
+												<input type="text" name="fechaResolucion" id="fechaResolucion" class="form-control" >
+											</div>											
+										</div>
+										<div class="row mb-15">
+											<div id="gridAutorizaciones"></div>										
+										</div>
+										<div class="row mb-15">									
+											<label for="observacionescomite" class="label-form col-xs-12 col-md-12">Observaciones / Instrucciones del Comité:
+											</label>			
+											<textarea name="observacionescomite" id="observacionescomite" class="form-control" rows="5" ></textarea>
+										
+										</div>
+										<div class="row mb-5">
+											<button id="btnGuardar" type="button" class="btn btn-primary">Guardar</button>
+                                        	<button id="btnCancelar" type="button" class="btn btn-danger">Cancelar</button>										
+										</div>
+									</div>												
+								</div>
+							</div>
+						</div>			
+					</div>					
+				</section>
+			</div>
+			
+			
+			
+	
+	<div id="dialog"></div>
+
+	<script type="text/javascript" src="/PWA_CLOUDEPM/webparts/masterplan/masterplan.js"></script>
+</body>
+</html>
